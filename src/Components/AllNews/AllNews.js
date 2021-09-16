@@ -1,9 +1,10 @@
-import { Grid } from '@material-ui/core';
+import { CircularProgress, Grid } from '@material-ui/core';
 import React, { useEffect,useContext } from 'react';
 import { useState } from 'react';
 import CategoryBar from '../CategoryBar/CategoryBar';
 import SingleNews from './SingleNews';
 import {userContext} from '../../App';
+import './AllNews.css';
 const AllNews = () => {
     const [allNews, setAllNews] = useState([])
     const [category,setCategory]=useContext(userContext);
@@ -15,9 +16,9 @@ const AllNews = () => {
         .then(response =>response.json())
         .then(data => {
             setNewAllNews(data)
-            console.log('congo from backend',data)});
-    },[])
-    console.log('congo from backend',newAllNews);
+        });
+    },[newAllNews])
+
     useEffect(() => {
         const url = `https://newsapi.org/v2/everything?q=${category}&apiKey=deaf26d1126640398a2d516f52214b08`
         fetch(url)
@@ -33,17 +34,29 @@ const AllNews = () => {
             <p className="ml-5 mb-5">Category : {category}</p>
             <div className="grid md:grid-cols-4 gap-6">
                 <div className="border md:col-span-3">
-                    <div className="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-5">
+                    {
+                        newAllNews.length===0?(
+                        <div style={{height:'300px'}}  className="flex flex-col justify-center items-center">
+                              
+                              <CircularProgress className="mb-3" />
+                              <h3 className="spinner-text">Data Is Laoding Please Wait</h3>
+                              
+                        </div>):
+                        
+                        <div className="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-5">
                         {
                             newAllNews.map(singleNews => {
+                                const data = singleNews.allNewsData[0]
+                                // console.log('hackeddddddddddddddddd',singleNews);
                                 return (
                                     <div className="mx-auto lg:col-span-2 xl:col-span-1">
-                                    <SingleNews props={singleNews} />
+                                    <SingleNews props={data}/>
+        
                                     </div>
                                 )
                             })
                         }
-                    </div>
+                    </div>}
                 </div>
                 <div className="border  md:col-span-1">
                     <h1 style={{fontSize:'3rem'}}>sidebar</h1>

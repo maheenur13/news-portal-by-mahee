@@ -8,39 +8,47 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Dotdotdot from 'react-dotdotdot'
-
+import Skeleton from '@material-ui/lab/Skeleton';
 
 const useStyles = makeStyles({
     root: {
-      maxWidth: 330,
+      maxWidth: 300,
+      padding:'13px',
+      marginBottom:'5px',
+      marginTop:'5px'
     },
     media: {
+      // width: '100%',
+      margin: 'auto',
       height: 150,
     },
+    skeleton:{
+      width:'300px',
+    }
   });
 
-const SingleNews = ({props}) => {
-    console.log('maheeeeeeee nurr anonna',props.allNewsData[0])
-    const data = props?.allNewsData[0]
+const SingleNews = (props) => {
+  console.log('whats the hack mahee',props)
+  const {imageFile,title,description}= props.props;
     const classes = useStyles();
- console.log(data.imageFile)
   return (
-    <Card className={`${classes.root}`}>
+    <>
+   <Card className={`${classes.root}`}>
       <CardActionArea>
-        <img
-          className={classes.media}
-          src={`data:image/jpeg;base64,${data.imageFile}`}
-          // title="Contemplative Reptile"
-          alt=""
-        />
+      <CardMedia
+        className={classes.media}
+        image={imageFile}
+        // title="Contemplative Reptile"
+        alt=""
+      />
         <CardContent>
           <Dotdotdot clamp={2}
            >
-            <h1>{data?.title}</h1>
+            <h1 className="mb-3" style={{fontWeight:'600'}}>{title}</h1>
           </Dotdotdot>
           <Dotdotdot clamp={4}>
           <Typography variant="body2" color="textSecondary" component="p">
-           {data?.description}
+           {description}
           </Typography>
             </Dotdotdot>
           
@@ -56,6 +64,7 @@ const SingleNews = ({props}) => {
         </a>
       </CardActions>
     </Card>
+    </>
   );
 };
 

@@ -66,7 +66,7 @@ const AddNews = () => {
     
     const  handleSubmit = async e => {
         e.preventDefault();
-       console.log(info);
+    //    console.log(info);
         fetch('http://localhost:5000/addNews', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -75,7 +75,7 @@ const AddNews = () => {
             .then(response => response.json())
             .then(results => {
                 
-                console.log('mahee',results)
+                // console.log('mahee',results)
             //    setInfo('')
             })
             .catch(error => {
@@ -84,14 +84,14 @@ const AddNews = () => {
     };
 
     const handleBlur = (e) => {
-        console.log(e.target.value)
+        // console.log(e.target.value)
         const newInfo = { ...info };
         newInfo.allNewsData[0][e.target.name] = e.target.value;
-        console.log('jahiiiiiiiiiid',newInfo);
+        // console.log('jahiiiiiiiiiid',newInfo);
         setInfo(newInfo);
     }
     const handleImageChange = async (e) => {
-        console.log(e.target.files[0]);
+        // console.log(e.target.files[0]);
         const imageFile = e.target.files[0];
         const file =  await convertToBase64(imageFile);
         const image= {...info};
@@ -103,7 +103,7 @@ const AddNews = () => {
     }
     const handleCategoryChange = (event) => {
         setAge(event.target.value);
-        console.log(event.target.value);
+        // console.log(event.target.value);
         info['category'] = event.target.value;
     }
     const [topNews, setTopNews] = useState({
@@ -115,10 +115,10 @@ const AddNews = () => {
         const isTopNews = {...info};
         info.allNewsData[0][event.target.name] = event.target.checked;
         setInfo(isTopNews);
-        console.log('anonna',info);
+        // console.log('anonna',info);
         
       };
-      console.log('topNews',topNews)
+    //   console.log('topNews',topNews)
     // console.log(watch("example"));
     const classes = useStyles();
     return (

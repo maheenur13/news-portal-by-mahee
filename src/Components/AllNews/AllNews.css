@@ -1,0 +1,13 @@
+.spinner-text{
+    animation: spinner 1s linear infinite;
+    font-size:1.5em;
+    letter-spacing:6px;
+    color: tomato;
+    transition: .3s;
+    /* border: 1px solid; */
+}
+@keyframes spinner {
+    0%{opacity: 1;}
+50%{opacity: 0;}
+100%{opacity: 1;}
+}
