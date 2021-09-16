@@ -11,30 +11,66 @@ import {
   Link
 } from "react-router-dom";
 import AddNews from './Components/Admin/AddNews/AddNews';
+import { Alert } from '@material-ui/lab';
+import AlertBar from './Components/Alert/AlertBar';
+// import Alert from '@mui/material/Alert';
+import IconButton from '@mui/material/IconButton';
+import Collapse from '@mui/material/Collapse';
+import Button from '@mui/material/Button';
+import CloseIcon from '@mui/icons-material/Close';
+import { Box } from '@mui/system';
 
-
-export const userContext=createContext();
+export const userContext = createContext();
 function App() {
-  const [category,setCategory] = useState('business')
+  const [open, setOpen] = useState(true);
+  const [category, setCategory] = useState('business')
   return (
     <Router>
-    <userContext.Provider value={[category,setCategory]}>
-    <div >
-      <NavBar></NavBar>
-      <Switch>
-        <Route exact path="/">
-        <Header></Header>
-        <AddNews></AddNews>
-        <AllNews></AllNews>
-     
-     </Route>
-     <Route path="/test">
-        <h1>hello</h1>
-     </Route>
-     </Switch>
-     
-    </div>
-    </userContext.Provider>
+      <userContext.Provider value={[category, setCategory]}>
+        <div >
+          <NavBar></NavBar>
+         
+          <Box className="my-2">
+            <Collapse in={open}>
+              <Alert
+                variant="filled"
+                severity="warning"
+                action={
+                  <IconButton
+                    aria-label="close"
+                    color="inherit"
+                    size="small"
+                    onClick={() => {
+                      setOpen(false);
+                    }}
+                  >
+                    <CloseIcon fontSize="inherit" />
+                  </IconButton>
+                }
+                sx={{ mb: 2 }}
+              >
+                Alert! <span >This Site is under Development.</span>
+              </Alert>
+            </Collapse>
+
+          </Box>
+         
+          
+
+          <Switch>
+            <Route exact path="/">
+              <Header></Header>
+              <AddNews></AddNews>
+              <AllNews></AllNews>
+
+            </Route>
+            <Route path="/test">
+              <h1>hello</h1>
+            </Route>
+          </Switch>
+
+        </div>
+      </userContext.Provider>
     </Router>
   );
 }
