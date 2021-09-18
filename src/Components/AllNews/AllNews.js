@@ -36,13 +36,14 @@ const AllNews = () => {
     // }, [category])
     return (
         <div className="container m-auto">
-            <h1 className="text-center text-2xl my-5">All News</h1>
+            
             <div className="border text-center my-6">
                 <CategoryBar></CategoryBar>
             </div>
             <p className="ml-5 mb-5">Category : {category}</p>
             <div className="grid md:grid-cols-4 gap-6">
-                <div className="border md:col-span-3">
+                <div className="border  md:col-span-3">
+                <h2 style={{borderBottom: '1px solid',width:'100px'}} className="m-auto font-bold text-center pt-5 pb-2 px-2">All News</h2>
                     {
                         newAllNews.length===0?(
                         <div style={{height:'300px'}}  className="flex flex-col justify-center items-center">

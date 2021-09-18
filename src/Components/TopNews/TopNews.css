@@ -1,0 +1,23 @@
+.sidebar{
+    height:100vh;
+    overflow-y: scroll;
+}
+.sidebar::-webkit-scrollbar{
+    width:10px;
+    /* padding: 10px; */
+    /* height:12px; */
+   
+}
+.sidebar::-webkit-scrollbar-track {
+   
+    background: #d6d6d6;
+    border-radius: 16px;
+   
+}
+ 
+.sidebar::-webkit-scrollbar-thumb {
+    border-radius: 16px;
+    /* margin: 15px 15px!important; */
+    padding:10px;
+    background: #4b4b4b60;
+}

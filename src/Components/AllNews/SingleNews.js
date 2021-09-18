@@ -31,9 +31,10 @@ const SingleNews = (props) => {
   console.log('whats the hack mahee',props)
   const {imageFile,title,description}= props.props;
     const classes = useStyles();
+    console.log(props.cardStyle)
   return (
-    <>
-   <Card className={`${classes.root}`}>
+    
+   <Card  className={`${classes.root}`}>
       <CardActionArea>
       <CardMedia
         className={classes.media}
@@ -64,7 +65,7 @@ const SingleNews = (props) => {
         </a>
       </CardActions>
     </Card>
-    </>
+    
   );
 };
 

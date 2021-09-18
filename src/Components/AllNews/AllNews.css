@@ -1,6 +1,6 @@
 .spinner-text{
     animation: spinner 1s linear infinite;
-    font-size:1.5em;
+    font-size:1.2em;
     letter-spacing:6px;
     color: tomato;
     transition: .3s;

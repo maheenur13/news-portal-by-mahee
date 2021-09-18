@@ -77,7 +77,8 @@ const AddNews = () => {
         })
             .then(response => response.json())
             .then(results => {
-                
+                history.push('/test')
+                history.push('/')
                 // console.log('mahee',results)
             //    setInfo('')
             })
