@@ -1,4 +1,4 @@
-import React, { useState, } from 'react';
+import React, { useContext, useState, } from 'react';
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
@@ -14,6 +14,7 @@ import Switch from '@material-ui/core/Switch';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import './AddNews.css';
 import convertToBase64 from '../Base64/Base64';
+import {userContext} from '../../../App';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -45,6 +46,8 @@ const categoryArray =[
 
 
 const AddNews = () => {
+    const {loggedInAdminInfo}=useContext(userContext);
+    const [loggedInAdmin, setLoggedInAdmin]= loggedInAdminInfo;
  const history = useHistory();
     const [info, setInfo] = useState({
         category:'',
@@ -123,7 +126,7 @@ const AddNews = () => {
     const classes = useStyles();
     return (
         <div className="container mx-auto my-6">
-            <form className="form" onSubmit={handleSubmit}>
+            {sessionStorage.getItem('name') &&<form className="form" onSubmit={handleSubmit}>
 
 
                 <input onBlur={handleBlur} className="form-input" placeholder="Enter News Title" name="title" required/>
@@ -211,7 +214,7 @@ const AddNews = () => {
 
 
                 <input className="from-submit" type="submit" />
-            </form>
+            </form>}
         </div>
     );
 };

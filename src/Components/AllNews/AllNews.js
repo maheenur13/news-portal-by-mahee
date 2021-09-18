@@ -5,12 +5,19 @@ import CategoryBar from '../CategoryBar/CategoryBar';
 import SingleNews from './SingleNews';
 import {userContext} from '../../App';
 import './AllNews.css';
+import SideBar from '../SideBar/SideBar';
+import TopNews from '../TopNews/TopNews';
 const AllNews = () => {
-    const [allNews, setAllNews] = useState([])
-    const {categoryValue}=useContext(userContext);
+//    const {allNewsCollection}= useContext(userContext);
+  
+    // const {categoryValue}=useContext(userContext);
+    // const [category, setCategory]= categoryValue;
+
+
+    const {categoryValue,allNewsCollection}=useContext(userContext);
     const [category, setCategory] = categoryValue;
-    
-    const [newAllNews,setNewAllNews] = useState([])
+    const [newAllNews,setNewAllNews] = allNewsCollection;
+    // const [newAllNews,setNewAllNews] = useState([])
 
     useEffect(()=>{
         const url ='http://localhost:5000/allNews';
@@ -19,7 +26,7 @@ const AllNews = () => {
         .then(data => {
             setNewAllNews(data)
         });
-    },[])
+    },[setNewAllNews])
 
     // useEffect(() => {
     //     const url = `https://newsapi.org/v2/everything?q=${category}&apiKey=deaf26d1126640398a2d516f52214b08`
@@ -61,7 +68,7 @@ const AllNews = () => {
                     </div>}
                 </div>
                 <div className="border  md:col-span-1">
-                    <h1 style={{fontSize:'3rem'}}>sidebar</h1>
+                    <TopNews></TopNews>
                 </div>
             </div>
         </div>

@@ -25,9 +25,10 @@ function App() {
   const [open, setOpen] = useState(true);
   const [category, setCategory] = useState('business')
   const [loggedInAdmin, setLoggedInAdmin] = useState([]);
+  const [newAllNews,setNewAllNews] = useState([])
   return (
     <Router>
-      <userContext.Provider value={{categoryValue:[category, setCategory], loggedInAdminInfo:[loggedInAdmin,setLoggedInAdmin]}}>
+      <userContext.Provider value={{categoryValue:[category, setCategory], loggedInAdminInfo:[loggedInAdmin,setLoggedInAdmin],allNewsCollection:[newAllNews,setNewAllNews]}}>
         <div >
           <NavBar></NavBar>
          
