@@ -20,7 +20,9 @@ signInWithPopup(auth, provider)
     const newAdminInfo = {...user};
     newAdminInfo.name =user.displayName;
     newAdminInfo.photo =user.photoURL;
+    sessionStorage.setItem("name",newAdminInfo.name);
     setLoggedInAdmin(newAdminInfo);
+    
     
     console.log(loggedInAdmin)
     // ...
@@ -37,11 +39,13 @@ signInWithPopup(auth, provider)
  
 }
 const handleLogOut = () => {
+    const useUpdate = sessionStorage.removeItem("name")
+    console.log(sessionStorage.getItem('name'))
     setLoggedInAdmin([]);
 }
     return (
         <div>
-           {!loggedInAdmin.name? 
+           {!sessionStorage.getItem('name')? 
            <Button onClick={handleSignIn}>Sign In As Admin</Button>
         :
         <Button onClick={handleLogOut}>Log Out</Button>
