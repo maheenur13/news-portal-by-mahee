@@ -46,9 +46,9 @@ const handleLogOut = () => {
     return (
         <div>
            {!sessionStorage.getItem('name')? 
-           <Button onClick={handleSignIn}>Sign In As Admin</Button>
+           <Button variant="outlined" color="primary" onClick={handleSignIn}>Sign In As Admin</Button>
         :
-        <Button onClick={handleLogOut}>Log Out</Button>
+        <Button variant="outlined" color="secondary" onClick={handleLogOut}>Log Out</Button>
         }
         </div>
     );
