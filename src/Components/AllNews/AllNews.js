@@ -7,7 +7,9 @@ import {userContext} from '../../App';
 import './AllNews.css';
 const AllNews = () => {
     const [allNews, setAllNews] = useState([])
-    const [category,setCategory]=useContext(userContext);
+    const {categoryValue}=useContext(userContext);
+    const [category, setCategory] = categoryValue;
+    
     const [newAllNews,setNewAllNews] = useState([])
 
     useEffect(()=>{
@@ -17,14 +19,14 @@ const AllNews = () => {
         .then(data => {
             setNewAllNews(data)
         });
-    },[newAllNews])
+    },[])
 
-    useEffect(() => {
-        const url = `https://newsapi.org/v2/everything?q=${category}&apiKey=deaf26d1126640398a2d516f52214b08`
-        fetch(url)
-            .then(res => res.json())
-            .then(data => setAllNews(data?.articles))
-    }, [category])
+    // useEffect(() => {
+    //     const url = `https://newsapi.org/v2/everything?q=${category}&apiKey=deaf26d1126640398a2d516f52214b08`
+    //     fetch(url)
+    //         .then(res => res.json())
+    //         .then(data => setAllNews(data?.articles))
+    // }, [category])
     return (
         <div className="container m-auto">
             <h1 className="text-center text-2xl my-5">All News</h1>

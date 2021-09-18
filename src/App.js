@@ -24,9 +24,10 @@ export const userContext = createContext();
 function App() {
   const [open, setOpen] = useState(true);
   const [category, setCategory] = useState('business')
+  const [loggedInAdmin, setLoggedInAdmin] = useState([]);
   return (
     <Router>
-      <userContext.Provider value={[category, setCategory]}>
+      <userContext.Provider value={{categoryValue:[category, setCategory], loggedInAdminInfo:[loggedInAdmin,setLoggedInAdmin]}}>
         <div >
           <NavBar></NavBar>
          

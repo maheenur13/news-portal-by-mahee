@@ -26,7 +26,9 @@ const categoryList = [
 ]
 
 const CategoryBar = () => {
-    const [category,setCategory]=useContext(userContext);
+    const {categoryValue}=useContext(userContext);
+    const [category, setCategory]= categoryValue;
+
     const classes = useStyles();
 
 
