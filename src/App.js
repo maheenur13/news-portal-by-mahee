@@ -51,7 +51,7 @@ function App() {
                 }
                 sx={{ mb: 2 }}
               >
-                Alert! <span >This Site is under Development.</span>
+                 <span >This Site is under Development. You may have some errors!</span>
               </Alert>
             </Collapse>
 
