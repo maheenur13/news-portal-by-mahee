@@ -64,7 +64,7 @@ const AllNews = () => {
                         }
                     </div>}
 
-                    <ContactForm></ContactForm>
+                    
                 </div>
                 <div className="md:col-span-1 px-3">
                 <h2 style={{ borderBottom: '1px solid' }} className="font-bold text-center pt-5 pb-2 px-4 mb-3 ">Top News</h2>

@@ -63,7 +63,7 @@ const CategoryBar = () => {
 
                 </Select>
             </FormControl>
-            <div>
+            <div className="my-4">
             <LocalizationProvider dateAdapter={DateAdapter} >
                 <DesktopDatePicker
                     label="Choose Date"

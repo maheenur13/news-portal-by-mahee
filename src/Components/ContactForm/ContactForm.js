@@ -18,7 +18,7 @@ const ContactForm = () => {
     return (
         <div className="mt-5">
             <h1 style={{fontSize:'1.5em'}} className="text-center mt-5">Any Feedback?</h1>
-            <form className="contact-form" onSubmit={handleSubmit(onSubmit)}>
+            <form  className="contact-form p-3 lg:p-9 sm:p-3  " onSubmit={handleSubmit(onSubmit)}>
                 <input placeholder="Enter Your Name or Email" {...register("example")} />
 
                 <textarea {...register("exampleRequired", { required: true })} placeholder="Enter Your Message" ></textarea>

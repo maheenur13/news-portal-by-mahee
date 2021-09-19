@@ -19,6 +19,7 @@ import Collapse from '@mui/material/Collapse';
 import Button from '@mui/material/Button';
 import CloseIcon from '@mui/icons-material/Close';
 import { Box } from '@mui/system';
+import ContactForm from './Components/ContactForm/ContactForm';
 
 export const userContext = createContext();
 function App() {
@@ -56,15 +57,13 @@ function App() {
             </Collapse>
 
           </Box>
-         
-          
 
           <Switch>
             <Route exact path="/">
               <Header></Header>
               <AddNews></AddNews>
               <AllNews></AllNews>
-
+              <ContactForm></ContactForm>
             </Route>
             <Route path="/test">
               <h1>hello</h1>
