@@ -14,8 +14,8 @@ const TopNews = () => {
     return (
         <>
             {newAllNews.length ? <div className="flex flex-col items-center">
-                <h2 style={{ borderBottom: '1px solid' }} className="font-bold text-center pt-5 pb-2 px-2">Top News</h2>
-                <div className="sidebar">
+                
+                <div className="sidebar px-5">
                     {
                         topNewsCollection.map(topNews => {
                             return (

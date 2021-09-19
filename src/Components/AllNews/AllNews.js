@@ -7,6 +7,7 @@ import {userContext} from '../../App';
 import './AllNews.css';
 import SideBar from '../SideBar/SideBar';
 import TopNews from '../TopNews/TopNews';
+import ContactForm from '../ContactForm/ContactForm';
 const AllNews = () => {
 //    const {allNewsCollection}= useContext(userContext);
   
@@ -28,12 +29,7 @@ const AllNews = () => {
         });
     },[setNewAllNews])
 
-    // useEffect(() => {
-    //     const url = `https://newsapi.org/v2/everything?q=${category}&apiKey=deaf26d1126640398a2d516f52214b08`
-    //     fetch(url)
-    //         .then(res => res.json())
-    //         .then(data => setAllNews(data?.articles))
-    // }, [category])
+   
     return (
         <div className="container m-auto">
             
@@ -42,8 +38,8 @@ const AllNews = () => {
             </div>
             <p className="ml-5 mb-5">Category : {category}</p>
             <div className="grid md:grid-cols-4 gap-6">
-                <div className="border  md:col-span-3">
-                <h2 style={{borderBottom: '1px solid',width:'100px'}} className="m-auto font-bold text-center pt-5 pb-2 px-2">All News</h2>
+                <div className="px-5  md:col-span-3">
+                <h2 style={{borderBottom: '1px solid'}} className="m-auto font-bold text-center pt-5 pb-2 px-2 mb-3">All News</h2>
                     {
                         newAllNews.length===0?(
                         <div style={{height:'300px'}}  className="flex flex-col justify-center items-center">
@@ -67,8 +63,11 @@ const AllNews = () => {
                             })
                         }
                     </div>}
+
+                    <ContactForm></ContactForm>
                 </div>
-                <div className="border  md:col-span-1">
+                <div className="md:col-span-1 px-3">
+                <h2 style={{ borderBottom: '1px solid' }} className="font-bold text-center pt-5 pb-2 px-4 mb-3 ">Top News</h2>
                     <TopNews></TopNews>
                 </div>
             </div>

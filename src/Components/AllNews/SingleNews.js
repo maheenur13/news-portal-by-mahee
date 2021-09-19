@@ -9,11 +9,12 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Dotdotdot from 'react-dotdotdot'
 import Skeleton from '@material-ui/lab/Skeleton';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
     root: {
       maxWidth: 300,
-      padding:'13px',
+      padding:'11px',
       marginBottom:'5px',
       marginTop:'5px'
     },
@@ -60,9 +61,9 @@ const SingleNews = (props) => {
           Share
         </Button>
 
-        <a href={props.url} size="small" color="primary" rel="noreferrer" target="_blank">
-          Learn More
-        </a>
+        <Button size="small" color="primary">
+          <Link to="singlePost">Read more</Link>
+        </Button>
       </CardActions>
     </Card>
     
