@@ -17,6 +17,7 @@ import {
 } from '@heroicons/react/outline'
 import {Link} from 'react-router-dom';
 import SignIn from '../../SignIn/SignIn';
+import SignInDropdown from './SingInDropDown/SignInDropdown';
 
 const NavBar = () => {
     return (
@@ -41,7 +42,8 @@ const NavBar = () => {
                 </Link>
               </Popover.Group>
               <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-                <SignIn/>
+                {/* <SignIn/> */}
+                <SignInDropdown></SignInDropdown>
                 
               </div>
             </div>
